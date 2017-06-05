@@ -67,8 +67,7 @@
         <div class="iv-container">
             <div class="iv-items" :class="{'autoani': autoAni}" :style="{transform: `translateX(${imgsWrapTranslateX}px)`}">
                 <div class="iv-item-wrap" :class="item.cls" v-for="(item, index) in imgs" v-if="imgs.length > 0" :style="{width: `${winWidth}px`}">
-                    <v-touch class="item" :class="{'autoani': item.autoAni}" :ref="item.ref"
-                             :style="{
+                    <v-touch class="item" :class="{'autoani': item.autoAni}" :ref="item.ref" :style="{
                             transform: `scale(${item.scale}) translateY(${item.translateY}px)`,
                             transformOrigin: `${item.transformOriginX}px`
                         }"
