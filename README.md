@@ -5,6 +5,8 @@
 
 vue-images-viewer is a component for vue that can display any images, supporting moving as well as scaling every image.
 
+`key words: swipe images / scale images / move images / vue component`
+
 ## installation
 
 The component requires vue >= 2.0 and vue-touch@next
