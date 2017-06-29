@@ -64,7 +64,7 @@
 <template>
     <div>
         <div class="iv-mask"></div>
-        <div class="iv-container">
+        <div class="iv-container" @click="closeViewer">
             <div class="iv-items" :class="{'autoani': autoAni}" :style="{transform: `translateX(${imgsWrapTranslateX}px)`}">
                 <div class="iv-item-wrap" :class="item.cls" v-for="(item, index) in imgs" v-if="imgs.length > 0" :style="{width: `${winWidth}px`}">
                     <v-touch class="item" :class="{'autoani': item.autoAni}" :ref="item.ref" :style="{
@@ -103,6 +103,10 @@
                 default() {
                     return [];
                 }
+            },
+            close: {
+                type: Function,
+                default: function () {}
             }
         },
         data() {
@@ -124,6 +128,14 @@
             this.innerList.unshift(typeof _first == 'object' ? {} : '');
 
             this._imgsInit();
+
+            window.addEventListener('resize', () => {
+//                let _imgs = Array.prototype.slice.call(this.imgs);
+//                let target = _imgs[this.currentImgIndex];
+                this.winWidth = window.innerWidth;
+                this.winWHeight = window.innerHeight;
+                this._imgsInit();
+            });
         },
         methods: {
             /**
@@ -141,8 +153,8 @@
                 let _newImgs = [];
                 _imgs.map((item, index) => {
                     let _item = typeof item == 'object' ? item : {
-                        url: item
-                    };
+                            url: item
+                        };
                     _item.autoAni = false;
                     _item.scale = 1;
                     _item.lastScale = 1;
@@ -292,6 +304,18 @@
                 let target = _imgs[index];
                 target.autoAni = false;
                 _imgs[index] = target;
+
+                if(!target.radio){
+                    //图片的原始尺寸和宽高比
+                    let imgWidth = event.target.naturalWidth;
+                    let imgHeight = event.target.naturalHeight;
+                    let radio = imgWidth/imgHeight;
+
+                    target.transformOriginX = this.winWidth / 2;
+                    target.lastTransformOriginX = target.transformOriginX;
+                    target.radio = radio;
+                }
+
                 this.imgs = _imgs;
             },
 
@@ -368,6 +392,11 @@
                     this.imgs = _imgs;
                 }
                 this.lastTime = currentTime;
+            },
+
+            closeViewer(event) {
+                if(event.target.nodeName === 'IMG') return;
+                this.close && this.close();
             }
         }
     }

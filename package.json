@@ -4,7 +4,7 @@
   "description": "vue-images-viewer is a component for vue that can display any images, supporting moving as well as scaling every image.",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack --progress"
   },
   "repository": {
     "type": "git",

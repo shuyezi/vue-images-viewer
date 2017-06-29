@@ -7469,7 +7469,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
-//
 
 var _vue = __webpack_require__(1);
 
@@ -7515,6 +7514,8 @@ exports.default = {
         this.innerList.unshift((typeof _first === 'undefined' ? 'undefined' : _typeof(_first)) == 'object' ? {} : '');
 
         this._imgsInit();
+
+        this._windowActionListener();
     },
 
     methods: {
@@ -7766,6 +7767,21 @@ exports.default = {
                 this.imgs = _imgs;
             }
             this.lastTime = currentTime;
+        },
+        _windowActionListener: function _windowActionListener() {
+            var _this3 = this;
+
+            window.addEventListener('resize', function () {
+                console.log('width:' + window.innerWidth, 'height:' + window.innerHeight, _this3.currentImgIndex);
+                var _width = window.innerWidth;
+                var _height = window.innerHeight;
+                _this3._imgsInit();
+                //                    if(_height > _width){
+                //                        this._imgsInit();
+                //                    }else{
+                //                        this._imgsInit();
+                //                    }
+            });
         }
     }
 };
