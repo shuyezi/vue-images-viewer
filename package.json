@@ -1,6 +1,6 @@
 {
   "name": "vue-images-viewer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "vue-images-viewer is a component for vue that can display any images, supporting swiping as well as pinching every image.",
   "main": "src/index.js",
   "scripts": {

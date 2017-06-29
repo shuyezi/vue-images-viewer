@@ -130,8 +130,6 @@
             this._imgsInit();
 
             window.addEventListener('resize', () => {
-//                let _imgs = Array.prototype.slice.call(this.imgs);
-//                let target = _imgs[this.currentImgIndex];
                 this.winWidth = window.innerWidth;
                 this.winWHeight = window.innerHeight;
                 this._imgsInit();
@@ -394,6 +392,10 @@
                 this.lastTime = currentTime;
             },
 
+            /**
+             * 关闭当前viewer事件
+             * @param event
+             */
             closeViewer(event) {
                 if(event.target.nodeName === 'IMG') return;
                 this.close && this.close();
