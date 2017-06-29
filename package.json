@@ -1,7 +1,7 @@
 {
   "name": "vue-images-viewer",
   "version": "1.0.0",
-  "description": "vue-images-viewer is a component for vue that can display any images, supporting moving as well as scaling every image.",
+  "description": "vue-images-viewer is a component for vue that can display any images, supporting swiping as well as pinching every image.",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack --progress"
@@ -13,8 +13,17 @@
   "keywords": [
     "vue",
     "component",
-    "images-viewer",
-    "es6"
+    "images",
+    "es6",
+    "swipe",
+    "slider",
+    "pinch",
+    "轮播",
+    "pan",
+    "carousel",
+    "scale",
+    "缩放",
+    "touch"
   ],
   "author": "jimmy <673950957@qq.com>",
   "bugs": {
